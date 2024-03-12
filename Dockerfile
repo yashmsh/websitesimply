@@ -10,7 +10,7 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
 # Copy the website files into the container
-COPY ./website /usr/local/apache2/htdocs/
+COPY . /website /usr/local/apache2/htdocs/
 
 # Set the working directory
 WORKDIR /usr/local/apache2/htdocs/
