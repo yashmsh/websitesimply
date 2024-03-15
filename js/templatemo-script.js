@@ -1,5 +1,5 @@
 
-  "use strict";
+  
     $('.gallery-slider').slick({
         slidesToShow: 5,
         slidesToScroll: 3,
