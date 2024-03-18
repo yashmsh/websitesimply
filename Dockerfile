@@ -1,19 +1,14 @@
-# Use the official Apache image as the base image
-FROM httpd:latest
+# Use the official NGINX image from Docker Hub
+FROM nginx:latest
 
-# Expose port 80 to the outside world
+# Copy website files into the container
+COPY . /usr/share/nginx/html
+
+# Optionally, copy custom NGINX configuration
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80 (default HTTP port)
 EXPOSE 80
 
-# Set environment variables
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-
-# Copy the website files into the container
-COPY . /usr/local/apache2/htdocs/
-
-# Set the working directory
-WORKDIR /usr/local/apache2/htdocs/
-
-# Define the entry point for the container
-ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
+# Start NGINX when the container starts
+CMD ["nginx", "-g", "daemon off;"]
