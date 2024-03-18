@@ -1,13 +1,8 @@
 
   
    
-        slidesToShow: 5,
-        slidesToScroll: 3,
-        autoplay: false,
-        dots: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        responsive: [
+        
+      [
           {
             breakpoint: 1024,
             settings: {
